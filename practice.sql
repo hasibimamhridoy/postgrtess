@@ -91,7 +91,7 @@ GROUP BY
 
 --Task : 2 End
 -------------------------------
---Task : 2
+--Task : 3
 -- Count employees in each department
 SELECT
     employee_name,
@@ -100,5 +100,22 @@ FROM
     departments
     INNER JOIN employees USING (department_id)
 GROUP BY
-    employee_name
-    --Task : 3 End
+    employee_name;
+
+--Task : 3 End
+-------------------------------
+--Task : 4
+-- Find the department name with the highest average salary
+SELECT
+    department_name,
+    round(avg(salary)) AS highest_salary
+FROM
+    departments
+    INNER JOIN employees USING (department_id)
+GROUP BY
+    department_name
+ORDER BY
+    highest_salary DESC
+LIMIT 1;
+
+--Task : 4 End
