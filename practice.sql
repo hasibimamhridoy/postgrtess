@@ -171,3 +171,30 @@ HAVING
     EXTRACT(year FROM order_date) = 2022;
 
 --Task : 7 end
+--Task : 8
+-- calculate total amount of 2022 each month
+SELECT
+    EXTRACT(month FROM order_date) AS order_month,
+    sum(total_amount) AS total_amount
+FROM
+    orders
+GROUP BY
+    EXTRACT(month FROM order_date);
+
+--Task : 8 end
+SELECT
+    order_date,
+    TO_CHAR(order_date::date, 'Month') AS month
+FROM
+    orders;
+
+SELECT
+    TO_CHAR(order_date::date, 'Month') AS order_month,
+    sum(total_amount) AS total_amount
+FROM
+    orders
+WHERE
+    extract(year FROM order_date) = 2022
+GROUP BY
+    TO_CHAR(order_date::date, 'Month');
+
