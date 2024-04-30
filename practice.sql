@@ -90,3 +90,15 @@ GROUP BY
     department_name;
 
 --Task : 2 End
+-------------------------------
+--Task : 2
+-- Count employees in each department
+SELECT
+    employee_name,
+    count(*) AS total
+FROM
+    departments
+    INNER JOIN employees USING (department_id)
+GROUP BY
+    employee_name
+    --Task : 3 End
