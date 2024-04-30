@@ -77,3 +77,16 @@ FROM
     INNER JOIN employees USING (department_id);
 
 --Task : 1 End
+-------------------------------
+--Task : 2
+-- Show department name with avg salary
+SELECT
+    department_name,
+    round(avg(salary)) AS salary
+FROM
+    departments
+    INNER JOIN employees USING (department_id)
+GROUP BY
+    department_name;
+
+--Task : 2 End
