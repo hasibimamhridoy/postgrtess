@@ -158,17 +158,16 @@ SELECT
 FROM
     orders;
 
---Task : 6
--- Find the customers who have placed more than 2 orders and calculate the total amount spent by each of these customers
+--Task : 7
+-- calculate total amount of 2022
 SELECT
-    customer_id,
-    count(customer_id) AS order_count,
-    round(sum(total_amount)) AS total_amount
+    EXTRACT(year FROM order_date) AS order_year,
+    sum(total_amount) AS total_amount
 FROM
     orders
 GROUP BY
-    customer_id
+    EXTRACT(year FROM order_date)
 HAVING
-    count(customer_id) > 2;
+    EXTRACT(year FROM order_date) = 2022;
 
---Task : 6 end
+--Task : 7 end
