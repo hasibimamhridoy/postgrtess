@@ -119,3 +119,16 @@ ORDER BY
 LIMIT 1;
 
 --Task : 4 End
+-------------------------------
+--Task : 5
+-- count employees hired each year
+SELECT
+    extract(YEAR FROM hire_date) AS year,
+    count(*) AS total_hired
+FROM
+    departments
+    INNER JOIN employees USING (department_id)
+GROUP BY
+    year;
+
+--Task : 5 End
